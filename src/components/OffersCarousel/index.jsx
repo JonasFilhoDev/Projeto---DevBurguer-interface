@@ -45,7 +45,7 @@ export function OffersCarousel() {
 
     return (
         <Container>
-            <Title>Ofetas do Dia</Title>
+            <Title>Ofertas do Dia</Title>
 
             <Carousel
                 responsive={responsive}
