@@ -1,7 +1,9 @@
 import js from '@eslint/js'
+import react from 'eslint-plugin-react'
 
 export default [
     js.configs.recommended,
+    react.configs.flat.recommended,
     {
         files: ['**/*.{js,jsx}'],
         languageOptions: {
@@ -20,7 +22,8 @@ export default [
             }
         },
         rules: {
-            'no-unused-vars': 'warn'
+            'no-unused-vars': 'warn',
+            'react/react-in-jsx-scope': 'off'
         }
     }
 ]
