@@ -9,7 +9,7 @@ import { Row } from './row';
 import { useEffect } from 'react';
 import { api } from '../../../services/api';
 import { useState } from 'react';
-import { orderStatusOptions } from './OrderStatus';
+import { orderStatusOptions } from './orderStatus';
 import { FilterOption, Filter } from './styles';
 
 

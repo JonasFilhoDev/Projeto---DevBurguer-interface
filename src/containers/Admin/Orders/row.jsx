@@ -15,7 +15,7 @@ import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 
 import { formatDate } from '../../../utils/formayDate';
 import { ProductImage, SelectStatus } from './styles';
-import { orderStatusOptions } from './OrderStatus';
+import { orderStatusOptions } from './orderStatus';
 import { api } from '../../../services/api';
 
 
