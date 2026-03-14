@@ -1,4 +1,6 @@
+/* global localStorage */
 import { createContext, useContext, useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 
 const UserContext = createContext({});
 
@@ -22,8 +24,8 @@ export const UserProvider = ({ children }) => {
 
         try {
             localStorage.setItem('devburguer:userData', JSON.stringify(userLoad));
-        } catch (e) {
-
+        } catch {
+            // Ignora erro ao salvar no localStorage
         }
     };
 
@@ -33,11 +35,17 @@ export const UserProvider = ({ children }) => {
     };
 
     useEffect(() => {
-       const userInfoLocalStorage = localStorage.getItem('devburguer:userData') 
+        const userInfoLocalStorage = localStorage.getItem('devburguer:userData');
 
-       if(userInfoLocalStorage) {
-            setUserInfo(JSON.parse(userInfoLocalStorage))
-       }
+        if (userInfoLocalStorage) {
+            try {
+                setUserInfo(JSON.parse(userInfoLocalStorage));
+            } catch {
+                // Se houver erro ao parsear, limpa o localStorage
+                localStorage.removeItem('devburguer:userData');
+                setUserInfo({});
+            }
+        }
 
     }, []);
 
@@ -46,6 +54,10 @@ export const UserProvider = ({ children }) => {
             {children}
         </UserContext.Provider>
     );
+};
+
+UserProvider.propTypes = {
+    children: PropTypes.node.isRequired,
 };
 
 export const useUser = () => {

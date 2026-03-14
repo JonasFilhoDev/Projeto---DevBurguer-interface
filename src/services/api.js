@@ -1,7 +1,8 @@
+/* global localStorage */
 import axios from 'axios';
 
 export const api = axios.create({
-    baseURL: 'https://projeto-dev-burguer-api.vercel.app' || 'http://localhost:3001',
+    baseURL: 'https://projeto-dev-burguer-api.vercel.app',
 });
 
 
@@ -13,7 +14,7 @@ api.interceptors.request.use((config) => {
             const parsed = JSON.parse(stored);
             token = parsed?.token || null;
         }
-    } catch (e) {
+    } catch {
         token = null;
     }
 

@@ -1,3 +1,4 @@
+/* global URLSearchParams */
 import { useEffect, useState } from "react";
 import {
     useStripe,
@@ -76,8 +77,8 @@ export function CompletePayment() {
                 return;
             }
 
-            setStatus (paymentIntent.status);
-            setIntentId (paymentIntent.id);
+            setStatus(paymentIntent.status);
+            setIntentId(paymentIntent.id);
         });
     }, [stripe]);
 

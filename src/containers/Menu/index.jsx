@@ -1,3 +1,4 @@
+/* global URLSearchParams */
 import { useState } from 'react';
 import { Container, Banner, CategoryMenu, ProductsContainer, CategoryButton } from './styles';
 import { useEffect } from 'react';
@@ -88,7 +89,7 @@ export function Menu() {
                         key={category.id}
                         $isActiveCategory={category.id === activeCategory}
                         onClick={() => {
-                            navigate (
+                            navigate(
                                 {
                                     pathname: '/cardapio',
                                     search: `?categoria=${category.id}`,

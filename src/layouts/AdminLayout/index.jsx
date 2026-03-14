@@ -1,3 +1,4 @@
+/* global localStorage */
 import { Outlet, Navigate } from 'react-router-dom';
 import { SideNavAdmin } from '../../components/SideNavAdmin';
 import { Container } from './styles';
