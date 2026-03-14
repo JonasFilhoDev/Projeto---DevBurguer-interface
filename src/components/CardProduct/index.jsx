@@ -9,7 +9,7 @@ export function CardProduct({ product }) {
         
     return (
         <Container>
-            <CardImage src={product.url} alt={product.name} />
+            <CardImage src={product.path} alt={product.name} />
             <div>
                 <p>{product.name}</p>
                 <strong>{formatPrice(product.price)}</strong>
